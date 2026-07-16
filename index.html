@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CMK Image Korea · 리더의 이미지를 전략으로 설계합니다</title>
+<meta name="description" content="CMK Image Korea는 20여 년간 기업·금융·공공기관 리더의 인상, 태도, 언어를 하나의 전략으로 설계해 온 이미지 컨설팅 그룹입니다.">
+<meta property="og:title" content="CMK Image Korea">
+<meta property="og:description" content="대한민국 대표 이미지컨설턴트로서 Creative Expert Group의 자긍심을 이어갑니다.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://vdirectors00-blip.github.io/cmk-imagekorea/">
+<meta property="og:image" content="https://vdirectors00-blip.github.io/cmk-imagekorea/assets/og-image.jpg?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="CMK Image Korea">
+<meta name="twitter:description" content="대한민국 대표 이미지컨설턴트로서 Creative Expert Group의 자긍심을 이어갑니다.">
+<meta name="twitter:image" content="https://vdirectors00-blip.github.io/cmk-imagekorea/assets/og-image.jpg?v=3">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+<style>
+  @font-face {
+    font-family: 'AritaBuri';
+    src: url('assets/AritaBuriKR-Light.woff2') format('woff2');
+    font-weight: 100 350; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'AritaBuri';
+    src: url('assets/AritaBuriKR-Medium.woff2') format('woff2');
+    font-weight: 351 550; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'AritaBuri';
+    src: url('assets/AritaBuriKR-Bold.woff2') format('woff2');
+    font-weight: 551 900; font-style: normal; font-display: swap;
+  }
+  @font-face {
+    font-family: 'Continuous';
+    src: url('assets/continuous.ttf') format('truetype');
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+  * { box-sizing: border-box; }
+  /* 제목·로고만 아리따부리(세리프) 유지, 본문·서브멘트는 Pretendard(가독성) */
+  h1, h2, h3, .brand-arita { font-family: 'AritaBuri','Pretendard',-apple-system,BlinkMacSystemFont,sans-serif; }
+  /* 로고 CMK만 Continuous 폰트 */
+  .brand-continuous { font-family: 'Continuous','AritaBuri',serif; }
+  html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+  body { margin: 0; }
+  ::selection { background: #1E2024; color: #FFFFFF; }
+  input::placeholder, textarea::placeholder { color: #A2A7AE; }
+  input, textarea, select, button { font-family: inherit; }
+
+  /* image-swap on hover / mobile auto-cycle */
+  .swap-wrap .swap-lively { opacity: 0; }
+  .swap-wrap .swap-base, .swap-wrap .swap-lively { transition: opacity .6s ease; }
+  .swap-wrap:hover .swap-lively { opacity: 1; }
+  .swap-wrap:hover .swap-base { opacity: 0; }
+  @keyframes cmkSwapIn { 0%,40% { opacity: 0 } 50%,90% { opacity: 1 } 100% { opacity: 0 } }
+  @keyframes cmkSwapOut { 0%,40% { opacity: 1 } 50%,90% { opacity: 0 } 100% { opacity: 1 } }
+  @media (hover: none) {
+    .swap-wrap .swap-lively { animation: cmkSwapIn 8s ease-in-out infinite; }
+    .swap-wrap .swap-base { animation: cmkSwapOut 8s ease-in-out infinite; }
+  }
+  @keyframes cmkFall { 0% { transform: translateY(0); opacity:.8 } 50% { opacity:.15 } 100% { transform: translateY(16px); opacity:.8 } }
+
+  /* hero image carousel (6 slides, cross-fade) */
+  .hero-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:0; animation:cmkHero 36s ease-in-out infinite; }
+  .hero-slide:nth-child(1){ animation-delay:0s; } .hero-slide:nth-child(2){ animation-delay:6s; }
+  .hero-slide:nth-child(3){ animation-delay:12s; } .hero-slide:nth-child(4){ animation-delay:18s; }
+  .hero-slide:nth-child(5){ animation-delay:24s; } .hero-slide:nth-child(6){ animation-delay:30s; }
+  @keyframes cmkHero { 0% { opacity:0 } 2.5% { opacity:1 } 14% { opacity:1 } 18% { opacity:0 } 100% { opacity:0 } }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-slide { animation:none; }
+    .hero-slide:nth-child(1){ opacity:1; }
+  }
+
+  /* personal image carousel (3 slides, cross-fade) */
+  .personal-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; opacity:0; animation:cmkPersonal 15s ease-in-out infinite; }
+  .personal-slide:nth-child(1){ animation-delay:0s; }
+  .personal-slide:nth-child(2){ animation-delay:5s; }
+  .personal-slide:nth-child(3){ animation-delay:10s; }
+  @keyframes cmkPersonal { 0% { opacity:0 } 3% { opacity:1 } 30% { opacity:1 } 36% { opacity:0 } 100% { opacity:0 } }
+  @media (prefers-reduced-motion: reduce) {
+    .personal-slide { animation:none; }
+    .personal-slide:nth-child(1){ opacity:1; }
+  }
+
+  /* header (scroll state) */
+  #siteHeader { position:fixed; top:0; left:0; right:0; z-index:60; transition:background .5s ease,color .5s ease,border-color .5s ease; background:transparent; color:#FFFFFF; border-bottom:1px solid rgba(255,255,255,0); }
+  #siteHeader.scrolled { background:rgba(255,255,255,.94); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); color:#26282C; border-bottom:1px solid rgba(28,30,34,.1); }
+
+  /* interactions ported from style-hover / style-focus */
+  .navlink { transition:opacity .3s; }
+  .navlink:hover { opacity:.5; }
+  .navcontact { transition:opacity .3s; }
+  .navcontact:hover { opacity:.55; }
+  .imgzoom { overflow:hidden; position:relative; }
+  .imgzoom:hover img { transform:scale(1.05); filter:saturate(.82) brightness(1.07) contrast(1.03); }
+  section img { filter:saturate(.78) brightness(1.05) contrast(1.02); }
+  .swap-wrap { position:relative; }
+  .btn-outline { transition:background .3s,color .3s,border-color .3s; }
+  .btn-outline:hover { background:#1E2024; border-color:#1E2024; color:#FFFFFF; }
+  .ulink { transition:opacity .3s; }
+  .ulink:hover { opacity:.55; }
+  .finput:focus { border-bottom-color:#1E2024 !important; }
+  .btn-solid { transition:opacity .3s; }
+  .btn-solid:hover { opacity:.82; }
+  .social { transition:background .25s,color .25s,transform .25s; }
+  .social:hover { background:#1E2024; color:#FFFFFF; transform:translateY(-3px); }
+  .cinfo:hover { opacity:.6; }
+
+  /* language switch */
+  .langswitch { display:inline-flex; align-items:center; gap:7px; font-size:13px; font-weight:500; letter-spacing:.05em; }
+  .langswitch a { color:inherit; text-decoration:none; transition:opacity .3s; }
+  .langswitch a:hover { opacity:.55; }
+  .langswitch .sep { opacity:.4; }
+  .langswitch .cur { opacity:1; }
+  .langswitch .alt { opacity:.5; }
+
+  /* mobile hamburger menu */
+  .menu-toggle { display:none; }
+  .mobile-menu { position:fixed; inset:0; z-index:80; background:rgba(18,19,22,.98); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:22px; opacity:0; visibility:hidden; transition:opacity .35s ease; }
+  .mobile-menu.open { opacity:1; visibility:visible; }
+  .mobile-menu .m-link { color:#F2F3F5; text-decoration:none; font-size:25px; font-weight:500; letter-spacing:.01em; transition:opacity .25s; }
+  .mobile-menu .m-link:active { opacity:.5; }
+  .menu-close { position:absolute; top:24px; right:22px; background:none; border:none; color:#F2F3F5; padding:8px; cursor:pointer; }
+
+  /* responsive: collapse two/three-column grids on tablet & phone */
+  @media (max-width: 900px) {
+    .grid-2, .grid-3 { grid-template-columns:1fr !important; }
+    .grid-4 { grid-template-columns:repeat(2,1fr) !important; }
+    #siteNav { display:none !important; }
+    .menu-toggle { display:inline-flex !important; position:absolute; top:0; right:clamp(20px,5vw,60px); height:88px; z-index:61; }
+    .navcontact { display:none !important; }
+    /* 모바일 1단 배치 시 데스크탑 지그재그(order)가 순서를 뒤섞음 → 전 섹션 사진 먼저로 통일 */
+    .grid-2 .swap-wrap { order:-1 !important; }
+    /* Philosophy: 모바일에서 fixed 배경이 깨져(과확대·점프) scroll로 전환 */
+    section[data-screen-label="Philosophy"] { background-attachment:scroll !important; background-position:center center !important; }
+    /* Hero: 가로(4:3) 사진이 세로 화면에서 과도하게 줌인되지 않도록 높이 축소해 가로를 더 노출 */
+    #top { height:74svh !important; min-height:500px !important; }
+    /* Hero 슬라이드별: 피사체 위치에 맞춰 모바일 세로 크롭 위치 개별 조정 (4·5·6번은 중앙이 적절해 기본값 유지) */
+    .hero-slide:nth-child(1) { object-position:86% center !important; } /* 강사 우측 */
+    .hero-slide:nth-child(2) { object-position:30% center !important; } /* 강사 좌측 */
+    .hero-slide:nth-child(3) { object-position:60% center !important; } /* 의상 랙 중앙~우측 */
+  }
+</style>
+</head>
+<body>
+<div style="position:relative;background:#FFFFFF;color:#1E2024;font-family:'Pretendard',-apple-system,BlinkMacSystemFont,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased;word-break:keep-all;text-wrap:pretty;">
+
+  <header id="siteHeader">
+    <div style="max-width:1500px;margin:0 auto;padding:0 clamp(20px,5vw,60px);height:88px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px;">
+      <a href="#top" style="justify-self:start;color:inherit;text-decoration:none;display:flex;align-items:baseline;gap:10px;">
+        <span class="brand-continuous" style="font-weight:400;font-size:30px;letter-spacing:0;">CMK</span>
+        <span class="brand-arita" style="font-size:11px;font-weight:500;letter-spacing:.26em;opacity:.55;">IMAGE KOREA</span>
+      </a>
+      <nav id="siteNav" style="justify-self:center;display:flex;align-items:center;gap:clamp(16px,2.2vw,36px);">
+        <a href="#about" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">About</a>
+        <a href="#corporate" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">Corporate</a>
+        <a href="#personal" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">Personal</a>
+        <a href="#academy" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">Academy</a>
+        <a href="#lab" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">Image Lab</a>
+        <a href="#kbeauty" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">K-Beauty</a>
+        <a href="#community" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">News</a>
+        <a href="#highlight" class="navlink" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;">Highlight</a>
+      </nav>
+      <div style="justify-self:end;display:flex;align-items:center;gap:20px;">
+        <span class="langswitch"><a class="cur" href="#top">KO</a><span class="sep">/</span><a class="alt" href="eng/">EN</a></span>
+        <a href="#contact" class="navcontact" style="color:inherit;text-decoration:none;font-size:14px;font-weight:400;letter-spacing:.02em;padding-bottom:2px;border-bottom:1px solid currentColor;">Contact</a>
+        <button id="menuToggle" class="menu-toggle" aria-label="메뉴 열기" style="background:none;border:none;color:inherit;padding:4px;cursor:pointer;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+    <button id="menuClose" class="menu-close" aria-label="메뉴 닫기">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+    </button>
+    <a href="#about" class="m-link">About</a>
+    <a href="#corporate" class="m-link">Corporate</a>
+    <a href="#personal" class="m-link">Personal</a>
+    <a href="#academy" class="m-link">Academy</a>
+    <a href="#lab" class="m-link">Image Lab</a>
+    <a href="#kbeauty" class="m-link">K-Beauty</a>
+    <a href="#community" class="m-link">News</a>
+    <a href="#highlight" class="m-link">Highlight</a>
+    <a href="#contact" class="m-link">Contact</a>
+    <a href="eng/" class="m-link" style="font-size:16px;opacity:.6;letter-spacing:.08em;">English</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="top" data-screen-label="Hero" style="position:relative;height:100svh;min-height:620px;background:#16171A;overflow:hidden;">
+    <div style="position:absolute;inset:0;z-index:0;">
+      <img class="hero-slide" src="assets/hero1.jpg" alt="" fetchpriority="high">
+      <img class="hero-slide" src="assets/hero2.jpg" alt="" loading="lazy">
+      <img class="hero-slide" src="assets/hero3.jpg" alt="" loading="lazy">
+      <img class="hero-slide" src="assets/hero4.jpg" alt="" loading="lazy">
+      <img class="hero-slide" src="assets/hero5.jpg" alt="" loading="lazy">
+      <img class="hero-slide" src="assets/hero6.jpg" alt="" loading="lazy">
+    </div>
+    <div style="position:absolute;inset:0;z-index:2;background:linear-gradient(to top, rgba(16,17,20,.82) 0%, rgba(16,17,20,.42) 44%, rgba(16,17,20,.58) 100%);"></div>
+    <div style="position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;justify-content:flex-end;max-width:1500px;margin:0 auto;left:0;right:0;padding:0 clamp(20px,5vw,60px) clamp(58px,9vh,104px);color:#FFFFFF;">
+      <div style="font-size:12px;font-weight:500;letter-spacing:.2em;color:rgba(255,255,255,.75);margin-bottom:26px;">CMK IMAGE KOREA&nbsp;&nbsp;·&nbsp;&nbsp;SINCE 2008</div>
+      <h1 style="font-weight:600;font-size:clamp(38px,5.6vw,88px);line-height:1.14;letter-spacing:-0.01em;margin:0;max-width:18ch;">The Standard of<br>Image Consulting</h1>
+      <p style="font-weight:500;font-size:clamp(16px,1.4vw,20px);line-height:1.7;color:rgba(255,255,255,.92);margin:30px 0 8px;max-width:46ch;">Leadership is seen before it is spoken.</p>
+      <p style="font-weight:300;font-size:clamp(13px,1vw,15px);line-height:1.85;color:rgba(255,255,255,.66);margin:0;max-width:44ch;">CMK는 20여 년간 기업·금융·공공기관 리더의 인상, 태도, 언어를 하나의 전략으로 설계해 왔습니다.</p>
+    </div>
+    <div style="position:absolute;z-index:4;right:clamp(20px,5vw,60px);bottom:clamp(58px,9vh,104px);display:flex;flex-direction:column;align-items:center;gap:11px;">
+      <span style="font-size:10px;font-weight:500;letter-spacing:.22em;color:rgba(255,255,255,.55);writing-mode:vertical-rl;">SCROLL</span>
+      <span style="width:1px;height:44px;background:linear-gradient(to bottom, rgba(255,255,255,.55), rgba(255,255,255,0));animation:cmkFall 2.4s ease-in-out infinite;"></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" data-screen-label="About" style="background:#FFFFFF;padding:clamp(64px,10vh,130px) clamp(20px,5vw,60px);">
+    <div class="grid-2" style="max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,96px);align-items:center;">
+      <div class="imgzoom">
+        <img src="assets/founder-cho.jpg" alt="CMK Image Korea 창립자 조미경" style="display:block;width:100%;aspect-ratio:4/5;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;">
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">ABOUT</div>
+        <h2 style="font-weight:400;font-size:clamp(28px,3.6vw,50px);line-height:1.32;letter-spacing:-0.02em;margin:22px 0 0;color:#1E2024;">Creative Partner<br>CMK Image Korea</h2>
+        <p style="font-weight:300;font-size:15.5px;line-height:1.95;color:#565C65;margin:28px 0 0;max-width:44ch;">20여 년간의 현장 컨설팅을 바탕으로, CMK Image Korea는 기업·금융·공공기관 리더의 이미지를 하나의 전략으로 설계합니다. 창립자 조미경을 중심으로 축적된 노하우로, 개인과 조직의 인상을 신뢰의 자산으로 만듭니다.</p>
+        <div style="margin-top:clamp(32px,4vw,44px);padding-top:28px;border-top:1px solid rgba(28,30,34,.16);">
+          <blockquote style="font-weight:400;font-size:clamp(17px,1.6vw,21px);line-height:1.62;letter-spacing:-0.01em;margin:0;color:#1E2024;">“개인의 이미지는 특별한 사람들만의 것이 아닙니다. 현대인 모두에게 필요한 전략입니다.”</blockquote>
+          <div style="margin-top:18px;font-size:12px;font-weight:500;letter-spacing:.14em;color:#8A9099;">조미경 · CHO MI-KYUNG, FOUNDER</div>
+        </div>
+        <a href="#contact" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;margin-top:34px;">더보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section data-screen-label="Philosophy" style="position:relative;overflow:hidden;padding:clamp(84px,13vh,156px) clamp(20px,5vw,60px);background-image:linear-gradient(to bottom, rgba(18,19,22,.72), rgba(18,19,22,.82)), url('assets/phil-seoul.jpg');background-size:cover;background-position:center center;background-attachment:fixed;">
+    <div style="position:relative;z-index:2;max-width:1160px;margin:0 auto;color:#FFFFFF;">
+      <div style="max-width:720px;margin:0 auto;text-align:center;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.22em;color:rgba(255,255,255,.58);">PHILOSOPHY</div>
+        <h2 style="font-weight:400;font-size:clamp(26px,3.5vw,48px);line-height:1.36;letter-spacing:-0.015em;margin:22px 0 0;">이미지를 브랜드처럼 설계합니다.</h2>
+      </div>
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4.5vw,68px);margin-top:clamp(56px,7vw,96px);align-items:start;">
+        <div style="border-top:1px solid rgba(255,255,255,.26);padding-top:26px;">
+          <div style="font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.5);margin-bottom:16px;">01</div>
+          <h3 style="font-weight:500;font-size:20px;margin:0 0 12px;">Creative Expert</h3>
+          <p style="font-weight:300;font-size:14px;line-height:1.9;color:rgba(255,255,255,.72);margin:0;">한 사람과 조직의 인상을 하나의 브랜드처럼 기획하고 설계합니다.</p>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.26);padding-top:26px;">
+          <div style="font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.5);margin-bottom:16px;">02</div>
+          <h3 style="font-weight:500;font-size:20px;margin:0 0 12px;">People</h3>
+          <p style="font-weight:300;font-size:14px;line-height:1.9;color:rgba(255,255,255,.72);margin:0;">리더 개개인의 강점에 맞춘 1:1 맞춤 컨설팅으로 진행합니다.</p>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,.26);padding-top:26px;">
+          <div style="font-size:12px;font-weight:500;letter-spacing:.08em;color:rgba(255,255,255,.5);margin-bottom:16px;">03</div>
+          <h3 style="font-weight:500;font-size:20px;margin:0 0 12px;">Communication</h3>
+          <p style="font-weight:300;font-size:14px;line-height:1.9;color:rgba(255,255,255,.72);margin:0;">인상을 신뢰로 바꾸는 언어와 태도를 함께 완성합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE -->
+  <section id="corporate" data-screen-label="Corporate" style="max-width:1500px;margin:0 auto;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div style="max-width:720px;margin:0 auto clamp(56px,8vw,90px);text-align:center;">
+      <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">CORPORATE</div>
+      <h2 style="font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.4;letter-spacing:-0.01em;margin:22px 0 0;color:#1E2024;">리더를 위한 이미지 전략</h2>
+      <p style="font-weight:300;font-size:15px;line-height:1.9;color:#626871;margin:24px auto 0;max-width:46ch;">기업과 기관, 개인 리더를 대상과 목적에 따라 정교하게 설계합니다.</p>
+    </div>
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.6vw,36px);">
+      <div>
+        <div class="imgzoom"><img src="assets/co1.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="text-align:center;padding-top:24px;">
+          <h3 style="font-weight:500;font-size:19px;margin:0 0 8px;color:#1E2024;">임원 · VVIP 컨설팅</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.8;color:#626871;margin:0;">CEO·장차관·고액 자산가를 위한 프라이빗 1:1 컨설팅</p>
+        </div>
+      </div>
+      <div>
+        <div class="imgzoom"><img src="assets/co2.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="text-align:center;padding-top:24px;">
+          <h3 style="font-weight:500;font-size:19px;margin:0 0 8px;color:#1E2024;">기업 · 금융 PI</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.8;color:#626871;margin:0;">기업·금융 조직과 임원을 위한 이미지 전략</p>
+        </div>
+      </div>
+      <div>
+        <div class="imgzoom"><img src="assets/co3.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="text-align:center;padding-top:24px;">
+          <h3 style="font-weight:500;font-size:19px;margin:0 0 8px;color:#1E2024;">공공기관 · 공기업</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.8;color:#626871;margin:0;">장·차관, 공공기관 리더의 공적 이미지 자문</p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:clamp(40px,4.5vw,58px);">
+      <a href="#contact" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;">더보기</a>
+    </div>
+  </section>
+
+  <!-- PERSONAL -->
+  <section id="personal" data-screen-label="Personal" style="background:#EDEEF1;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div class="grid-2" style="max-width:1500px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center;">
+      <div style="order:1;text-align:left;padding:0 clamp(0px,2vw,32px);">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">PERSONAL</div>
+        <h2 style="font-weight:400;font-size:clamp(24px,3.2vw,40px);line-height:1.4;letter-spacing:-0.01em;margin:20px 0 0;color:#1E2024;">개인을 위한 이미지 전략</h2>
+        <p style="font-weight:300;font-size:15px;line-height:1.95;color:#626871;margin:24px 0 0;max-width:38ch;">한 사람의 이미지를 가장 깊이 있게 다루는 프라이빗 프로그램. 소수의 클라이언트를 위해 1:1로 진행됩니다.</p>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:34px;font-size:15px;font-weight:400;color:#1E2024;">
+          <span>· VVIP 1:1 코칭</span>
+          <span>· 미디어 이미지</span>
+          <span>· 퍼스널 스타일</span>
+        </div>
+        <a href="#contact" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;margin-top:32px;">더보기</a>
+      </div>
+      <div class="swap-wrap" style="order:2;overflow:hidden;position:relative;aspect-ratio:4/5;border-radius:6px;box-shadow:0 24px 60px -28px rgba(20,22,26,.5);">
+        <img class="personal-slide" src="assets/personal.jpg" alt="개인 이미지 컨설팅">
+        <img class="personal-slide" src="assets/personal1.jpg" alt="">
+        <img class="personal-slide" src="assets/personal2.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- ACADEMY -->
+  <section id="academy" data-screen-label="Academy" style="max-width:1500px;margin:0 auto;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div class="grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,100px);align-items:center;">
+      <div class="swap-wrap" style="overflow:hidden;position:relative;aspect-ratio:4/5;"><img class="swap-base" src="assets/academy-modern.jpg" alt="" style="display:block;width:100%;height:100%;object-fit:cover;"><img class="swap-lively" src="assets/corp-lecture.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"></div>
+      <div style="text-align:left;padding:0 clamp(0px,2vw,32px);">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">ACADEMY</div>
+        <h2 style="font-weight:400;font-size:clamp(24px,3.2vw,40px);line-height:1.4;letter-spacing:-0.01em;margin:20px 0 0;color:#1E2024;">CMK Academy</h2>
+        <p style="font-weight:300;font-size:15px;line-height:1.95;color:#626871;margin:24px 0 0;max-width:38ch;">현장의 전문가를 양성하는 교육 과정. 20여 년의 컨설팅 노하우를 체계화한 커리큘럼입니다.</p>
+        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:14px;margin-top:34px;font-size:15px;font-weight:400;color:#1E2024;">
+          <span>· Taste Image Scale</span>
+          <span>· 이미지컨설턴트 전략과정</span>
+          <span>· 퍼스널컬러 진단과정</span>
+          <span>· 메이크업 과정</span>
+        </div>
+        <a href="#contact" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;margin-top:32px;">더보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE LAB -->
+  <section id="lab" data-screen-label="Image Lab" style="background:#EDEEF1;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div style="max-width:1500px;margin:0 auto;">
+      <div style="max-width:720px;margin:0 auto clamp(52px,8vw,84px);text-align:center;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">IMAGE LAB</div>
+        <h2 style="font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.4;letter-spacing:-0.01em;margin:22px 0 0;color:#1E2024;">어울림의 원리를 연구합니다.</h2>
+      </div>
+      <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);">
+        <div style="text-align:center;">
+          <div class="imgzoom"><img src="assets/im1.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+          <h3 style="font-weight:500;font-size:18px;margin:22px 0 6px;color:#1E2024;">퍼스널 컬러 연구</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.85;color:#626871;margin:0;">4계절 16타입, 어울리는 색을 진단합니다.</p>
+        </div>
+        <div style="text-align:center;">
+          <div class="imgzoom"><img src="assets/hero3.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+          <h3 style="font-weight:500;font-size:18px;margin:22px 0 6px;color:#1E2024;">스타일 연구</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.85;color:#626871;margin:0;">어울리는 소재와 실루엣, 패턴을 분석합니다.</p>
+        </div>
+        <div style="text-align:center;">
+          <div class="imgzoom"><img src="assets/im3.jpg" alt="" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+          <h3 style="font-weight:500;font-size:18px;margin:22px 0 6px;color:#1E2024;">골격과 헤어 연구</h3>
+          <p style="font-weight:300;font-size:13.5px;line-height:1.85;color:#626871;margin:0;">얼굴형과 골격에 맞는 헤어를 연출합니다.</p>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;margin-top:clamp(40px,4.5vw,58px);">
+        <a href="#contact" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;">더보기</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- K-BEAUTY -->
+  <section id="kbeauty" data-screen-label="K-Beauty" style="max-width:1500px;margin:0 auto;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div class="grid-2" style="display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(40px,6vw,90px);align-items:center;">
+      <div style="text-align:left;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">K-BEAUTY</div>
+        <h2 style="font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.34;letter-spacing:-0.015em;margin:20px 0 0;color:#1E2024;">얼굴 타입별 맞춤형<br>뷰티 솔루션</h2>
+        <p style="font-weight:400;font-size:15px;line-height:1.7;color:#8A9099;margin:16px 0 0;letter-spacing:.02em;">K-뷰티의 새로운 패러다임</p>
+        <p style="font-weight:300;font-size:15.5px;line-height:1.95;color:#565C65;margin:26px 0 0;max-width:46ch;">K-뷰티는 더 이상 획일적인 미(美)의 기준을 강요하지 않습니다. 이제 핵심은 얼굴 타입에 맞춘 <strong style="font-weight:500;color:#1E2024;">맞춤형 뷰티 솔루션</strong>입니다. 세대감(아이·어른)과 형태(직선·곡선)의 조합으로 결정되는 8가지 얼굴 타입에 따라, 어울리는 메이크업·헤어·스타일이 달라집니다.</p>
+        <div style="display:inline-block;margin-top:clamp(28px,4vw,40px);"><img src="assets/k-1.png" alt="Face Type 얼굴 타입 진단" style="display:block;width:clamp(240px,80%,380px);height:auto;"></div>
+        <div><a class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;margin-top:clamp(20px,2.6vw,28px);cursor:pointer;">더보기</a></div>
+      </div>
+      <div style="display:flex;flex-direction:row;gap:clamp(12px,1.5vw,20px);align-items:flex-start;">
+        <div class="imgzoom" style="flex:1;margin-top:0;border-radius:6px;box-shadow:0 24px 60px -32px rgba(20,22,26,.5);"><img src="assets/k1.jpg" alt="K-뷰티 스타일링" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom" style="flex:1;margin-top:clamp(24px,5vw,52px);border-radius:6px;box-shadow:0 24px 60px -32px rgba(20,22,26,.5);"><img src="assets/k2.jpg" alt="K-뷰티 메이크업" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom" style="flex:1;margin-top:0;border-radius:6px;box-shadow:0 24px 60px -32px rgba(20,22,26,.5);"><img src="assets/k3.jpg" alt="K-뷰티 헤어" style="display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section id="community" data-screen-label="Community" style="max-width:1500px;margin:0 auto;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div style="max-width:720px;margin:0 auto clamp(52px,8vw,84px);text-align:center;">
+      <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">COMMUNITY</div>
+      <h2 style="font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.4;letter-spacing:-0.01em;margin:22px 0 0;color:#1E2024;">News &amp; Media</h2>
+    </div>
+    <div class="grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,44px);">
+      <a href="https://blog.naver.com/cmkimage" style="text-decoration:none;color:inherit;display:block;text-align:center;">
+        <div class="imgzoom"><img src="assets/news-media.jpg" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#8A9099;margin:22px 0 8px;">CMK NEWS</div>
+        <h3 style="font-weight:400;font-size:17px;line-height:1.5;color:#1E2024;margin:0;">CMK 이미지코리아 소식과 공지</h3>
+      </a>
+      <a href="https://blog.naver.com/cmkimage" style="text-decoration:none;color:inherit;display:block;text-align:center;">
+        <div class="imgzoom"><img src="assets/community-lecture.jpg" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#8A9099;margin:22px 0 8px;">LECTURE</div>
+        <h3 style="font-weight:400;font-size:17px;line-height:1.5;color:#1E2024;margin:0;">대표·강사진의 강의와 특강</h3>
+      </a>
+      <a href="https://blog.naver.com/cmkimage" style="text-decoration:none;color:inherit;display:block;text-align:center;">
+        <div class="imgzoom"><img src="assets/community-media.jpg" alt="" style="display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:.12em;color:#8A9099;margin:22px 0 8px;">MEDIA</div>
+        <h3 style="font-weight:400;font-size:17px;line-height:1.5;color:#1E2024;margin:0;">인터뷰 · 방송 · 기고 아카이브</h3>
+      </a>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:clamp(40px,4.5vw,58px);">
+      <a href="https://blog.naver.com/cmkimage" class="btn-outline" style="display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(20,22,26,.5);color:#1E2024;text-decoration:none;padding:13px 30px;font-size:13px;font-weight:400;letter-spacing:.05em;background:transparent;">더보기</a>
+    </div>
+  </section>
+
+  <!-- CMK HIGHLIGHT -->
+  <section id="highlight" data-screen-label="CMK Highlight" style="background:#EDEEF1;padding:clamp(60px,8vh,104px) clamp(20px,5vw,60px);">
+    <div style="max-width:1500px;margin:0 auto;">
+      <div style="max-width:720px;margin:0 auto clamp(48px,7vw,76px);text-align:center;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">CMK HIGHLIGHT</div>
+        <h2 style="font-weight:400;font-size:clamp(26px,3.4vw,44px);line-height:1.4;letter-spacing:-0.01em;margin:22px 0 0;color:#1E2024;">CMK Highlight</h2>
+      </div>
+      <div class="grid-4" style="display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.4vw,18px);">
+        <div class="imgzoom"><img src="assets/hi1.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi2.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi3.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi4.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi5.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi6.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi7.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi8.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi9.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi10.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi11.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi12.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi13.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi14.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi15.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+        <div class="imgzoom"><img src="assets/hi16.jpg" alt="" style="display:block;width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform 1.3s cubic-bezier(.16,.72,.28,1),filter 1.3s ease;"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" data-screen-label="Contact" style="background:#EDEEF1;padding:clamp(72px,9vh,120px) clamp(20px,5vw,60px);">
+    <div class="grid-2" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px,7vw,96px);align-items:start;">
+      <div style="text-align:left;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">CONTACT</div>
+        <h2 style="font-weight:400;font-size:clamp(30px,4.4vw,54px);line-height:1.16;letter-spacing:-0.02em;margin:20px 0 0;color:#1E2024;">문의하기</h2>
+        <p style="font-weight:300;font-size:15px;line-height:1.95;color:#626871;margin:24px 0 0;max-width:36ch;">기업·기관, VVIP 상담은 소수의 클라이언트를 위해 프라이빗하게 진행됩니다. 아래로 내용을 남겨 주시면 순차적으로 회신드립니다.</p>
+        <div style="margin-top:clamp(32px,4vw,44px);padding-top:26px;border-top:1px solid rgba(28,30,34,.16);display:flex;flex-direction:column;gap:14px;font-size:14px;color:#626871;">
+          <a href="mailto:cmkimage@hanmail.net" class="cinfo" style="color:inherit;text-decoration:none;transition:opacity .3s;">cmkimage@hanmail.net</a>
+          <a href="tel:031-284-2566" class="cinfo" style="color:inherit;text-decoration:none;transition:opacity .3s;">031 284 2566</a>
+          <span style="font-weight:300;line-height:1.7;">경기 용인시 기흥구 탑실로 116</span>
+        </div>
+      </div>
+
+      <div id="sentMsg" style="display:none;min-height:280px;flex-direction:column;justify-content:center;align-items:flex-start;border-top:1px solid rgba(28,30,34,.16);padding-top:40px;">
+        <div style="font-size:11px;font-weight:500;letter-spacing:.2em;color:#8A9099;">SENT</div>
+        <h3 style="font-weight:400;font-size:clamp(22px,2.4vw,32px);line-height:1.3;letter-spacing:-0.01em;margin:16px 0 0;color:#1E2024;">문의가 접수되었습니다.</h3>
+        <p style="font-weight:300;font-size:14.5px;line-height:1.9;color:#626871;margin:16px 0 0;">담당자가 확인 후 순차적으로 회신드리겠습니다. 감사합니다.</p>
+      </div>
+
+      <form id="contactForm" style="display:grid;grid-template-columns:1fr 1fr;gap:26px 24px;">
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;color:#8A9099;">이름</span>
+          <input type="text" name="name" placeholder="홍길동" class="finput" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(28,30,34,.28);padding:9px 0;font-size:14.5px;color:#1E2024;outline:none;transition:border-color .3s;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;color:#8A9099;">직책</span>
+          <input type="text" name="title" placeholder="대표이사" class="finput" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(28,30,34,.28);padding:9px 0;font-size:14.5px;color:#1E2024;outline:none;transition:border-color .3s;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;color:#8A9099;">소속</span>
+          <input type="text" name="company" placeholder="회사 · 기관명" class="finput" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(28,30,34,.28);padding:9px 0;font-size:14.5px;color:#1E2024;outline:none;transition:border-color .3s;">
+        </label>
+        <label style="display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;color:#8A9099;">연락처</span>
+          <input type="text" name="phone" placeholder="010-0000-0000" class="finput" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(28,30,34,.28);padding:9px 0;font-size:14.5px;color:#1E2024;outline:none;transition:border-color .3s;">
+        </label>
+        <label style="grid-column:1 / -1;display:flex;flex-direction:column;gap:9px;">
+          <span style="font-size:11px;font-weight:500;letter-spacing:.14em;color:#8A9099;">내용</span>
+          <textarea name="message" rows="3" placeholder="문의하실 내용을 남겨 주세요." class="finput" style="width:100%;background:transparent;border:none;border-bottom:1px solid rgba(28,30,34,.28);padding:9px 0;font-size:14.5px;color:#1E2024;outline:none;resize:none;line-height:1.7;transition:border-color .3s;"></textarea>
+        </label>
+        <button type="submit" class="btn-solid" style="grid-column:1 / -1;justify-self:start;margin-top:8px;background:#1E2024;color:#FFFFFF;border:none;padding:15px 40px;font-size:14px;font-weight:400;letter-spacing:.04em;cursor:pointer;">문의 보내기</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background:#E3E5E9;color:#626871;padding:clamp(56px,8vh,88px) clamp(20px,5vw,60px) 40px;">
+    <div style="max-width:1500px;margin:0 auto;">
+      <div class="grid-foot" style="display:grid;grid-template-columns:1fr auto;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(28,30,34,.14);align-items:start;">
+        <div>
+          <div style="display:flex;align-items:baseline;gap:9px;margin-bottom:16px;"><span class="brand-continuous" style="font-weight:400;font-size:28px;letter-spacing:0;color:#1E2024;">CMK</span><span class="brand-arita" style="font-size:10px;font-weight:500;letter-spacing:.24em;color:#8A9099;">IMAGE KOREA · SINCE 2008</span></div>
+          <p style="font-weight:300;font-size:13px;line-height:1.8;max-width:30ch;margin:0;">리더와 기관의 이미지를 전략으로 설계하는 이미지 컨설팅 그룹.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.1em;color:#8A9099;margin-bottom:16px;">FOLLOW</div>
+          <div style="display:flex;gap:11px;">
+            <a href="https://blog.naver.com/cmkimage" aria-label="Naver Blog" class="social" style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(28,30,34,.26);display:flex;align-items:center;justify-content:center;color:#1E2024;text-decoration:none;"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M4 4h5.3l5 7.4V4H20v16h-5.3l-5-7.4V20H4z"/></svg></a>
+            <a href="https://www.instagram.com/cmkimagekorea/" aria-label="Instagram" class="social" style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(28,30,34,.26);display:flex;align-items:center;justify-content:center;color:#1E2024;text-decoration:none;"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/cmk.cho" aria-label="Facebook" class="social" style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(28,30,34,.26);display:flex;align-items:center;justify-content:center;color:#1E2024;text-decoration:none;"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-8h2.4l.4-3h-2.8V8.1c0-.85.28-1.43 1.5-1.43h1.4V4.1c-.68-.09-1.5-.18-2.34-.18-2.32 0-3.9 1.42-3.9 4.02V10H7.7v3h2.4v8z"/></svg></a>
+            <a href="https://www.youtube.com/channel/UCSl1lcjrHqWx8_QezQO5BTg" aria-label="YouTube" class="social" style="width:42px;height:42px;border-radius:50%;border:1px solid rgba(28,30,34,.26);display:flex;align-items:center;justify-content:center;color:#1E2024;text-decoration:none;"><svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M22.5 7.3c-.25-1-1-1.75-2-2C18.7 4.8 12 4.8 12 4.8s-6.7 0-8.5.5c-1 .25-1.75 1-2 2C1 9.1 1 12 1 12s0 2.9.5 4.7c.25 1 1 1.75 2 2 1.8.5 8.5.5 8.5.5s6.7 0 8.5-.5c1-.25 1.75-1 2-2 .5-1.8.5-4.7.5-4.7s0-2.9-.5-4.7zM9.9 15.2V8.8l5.6 3.2z"/></svg></a>
+          </div>
+        </div>
+      </div>
+      <div style="padding-top:24px;font-size:11.5px;line-height:1.9;color:#8A9099;">
+        <div style="margin-bottom:6px;">CMK Image Korea &nbsp;|&nbsp; 대표 조미경 &nbsp;|&nbsp; 사업자등록번호 107-91-45820</div>
+        <div style="margin-bottom:14px;">경기 용인시 기흥구 탑실로 116, 탑실마을 대주 피오레 2단지 215동 303호 &nbsp;|&nbsp; Tel 031-284-2566 &nbsp;|&nbsp; cmkimage@hanmail.net</div>
+        <div>© 2008–2026 CMK IMAGE KOREA. All rights reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  // --- 브라우저(엣지 비주얼검색 등) 이미지 호버 아이콘 차단: 각 호버 이미지 위에
+  //     실제 div 방패를 덮어 브라우저가 <img> 대신 이 div를 인식하게 함(줌 효과 유지) ---
+  document.querySelectorAll('.imgzoom, .swap-wrap').forEach(function (el) {
+    var shield = document.createElement('div');
+    shield.style.cssText = 'position:absolute;inset:0;z-index:5;';
+    el.appendChild(shield);
+  });
+  // --- header nav: not a one-page landing, so menu clicks must NOT scroll to
+  //     in-page sections (each will link to its own page later). Disable for now.
+  document.querySelectorAll('.navlink, .navcontact').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+    a.style.cursor = 'default';
+  });
+
+  // --- mobile hamburger menu (single page이므로 섹션 스크롤 동작) ---
+  var mToggle = document.getElementById('menuToggle');
+  var mMenu = document.getElementById('mobileMenu');
+  var mClose = document.getElementById('menuClose');
+  function openM() { mMenu.classList.add('open'); mMenu.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+  function closeM() { mMenu.classList.remove('open'); mMenu.setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+  if (mToggle) mToggle.addEventListener('click', openM);
+  if (mClose) mClose.addEventListener('click', closeM);
+  if (mMenu) mMenu.querySelectorAll('.m-link').forEach(function (a) { a.addEventListener('click', closeM); });
+
+  // --- header scroll state ---
+  var header = document.getElementById('siteHeader');
+  function onScroll() {
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // --- contact form (client-side confirmation) ---
+  var form = document.getElementById('contactForm');
+  var sent = document.getElementById('sentMsg');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      form.style.display = 'none';
+      sent.style.display = 'flex';
+    });
+  }
+
+  // --- scroll reveal (ported from the design's _initReveal) ---
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sections = document.querySelectorAll('section[data-screen-label]');
+  var items = [];
+  sections.forEach(function (sec) {
+    if (sec.getAttribute('data-screen-label') === 'Hero') return;
+    var grids = Array.prototype.slice.call(sec.querySelectorAll('[style*="grid-template-columns"]'));
+    sec.querySelectorAll('h2').forEach(function (h2) {
+      var inGrid = grids.some(function (g) { return g.contains(h2); });
+      if (!inGrid && h2.parentElement) items.push(h2.parentElement);
+    });
+    grids.forEach(function (g) { Array.prototype.slice.call(g.children).forEach(function (c) { items.push(c); }); });
+    if (grids.length === 0 && sec.querySelectorAll('h2').length === 0 && sec.firstElementChild) {
+      items.push(sec.firstElementChild);
+    }
+  });
+  var unique = Array.from(new Set(items));
+  if (!reduce && ('IntersectionObserver' in window)) {
+    var ease = 'cubic-bezier(.16,.72,.28,1)';
+    unique.forEach(function (el) {
+      var sibs = el.parentElement ? Array.prototype.slice.call(el.parentElement.children).filter(function (c) { return unique.indexOf(c) !== -1; }) : [el];
+      var idx = Math.max(0, sibs.indexOf(el));
+      var delay = Math.min(idx * 90, 360);
+      el.style.setProperty('opacity', '0');
+      el.style.setProperty('transform', 'translateY(30px)');
+      el.style.setProperty('transition', 'opacity 1s ' + ease + ' ' + delay + 'ms, transform 1s ' + ease + ' ' + delay + 'ms');
+      el.style.setProperty('will-change', 'opacity, transform');
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        el.style.setProperty('opacity', '1');
+        el.style.setProperty('transform', 'translateY(0)');
+        io.unobserve(el);
+        setTimeout(function () { try { el.style.removeProperty('will-change'); } catch (e) {} }, 1400);
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    unique.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+</body>
+</html>
